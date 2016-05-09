@@ -1,5 +1,6 @@
 package com.example.smart_campus.smartcampus;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +21,7 @@ import android.widget.Toast;
         static String user_nameV,email_adressV,passwordV;
         EditText username_ETobj,email_adressETobj,password_ETobj;
         Button registerB;
+        Button temp;
 
         Spinner dropdown;
         @Override
@@ -31,6 +33,7 @@ import android.widget.Toast;
             username_ETobj=(EditText)findViewById(R.id.ET_name_id);
             email_adressETobj=(EditText)findViewById(R.id.ET_emailadress_id);
             password_ETobj=(EditText)findViewById(R.id.ET_password_id);
+            temp=(Button) findViewById(R.id.button2);
             registerB=(Button)findViewById(R.id.register_button);
             dropdown = (Spinner) findViewById(R.id.spinner1);
             dropdown.setOnItemSelectedListener(this);
@@ -54,6 +57,18 @@ import android.widget.Toast;
                 }
             });
 
+
+            temp.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent nextact=new Intent(getApplicationContext(),login.class);
+                    startActivity(nextact);
+
+                }
+            });
+
+
+
         }
 
 
@@ -67,6 +82,10 @@ import android.widget.Toast;
         @Override
         public void onNothingSelected(AdapterView<?> parent) {
 
+        }
 
-        }}
+
+
+
+    }
 

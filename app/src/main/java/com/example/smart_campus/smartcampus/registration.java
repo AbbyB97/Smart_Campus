@@ -37,9 +37,11 @@ import android.widget.Toast;
             registerB=(Button)findViewById(R.id.register_button);
             dropdown = (Spinner) findViewById(R.id.spinner1);
             dropdown.setOnItemSelectedListener(this);
+
             //Creating the ArrayAdapter instance having the user category list
             ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,account_type);
             aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
             //Setting the ArrayAdapter data on the Spinner
             dropdown.setAdapter(aa);
 

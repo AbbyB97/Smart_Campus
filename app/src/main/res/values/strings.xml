@@ -2,4 +2,5 @@
     <string name="app_name">Smart Campus</string>
     <string name="title_activity_registration">Registration</string>
     <string name="title_activity_login">Login</string>
+    <string name="title_activity_forgot_password">Reset Password</string>
 </resources>

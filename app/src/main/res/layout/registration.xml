@@ -89,6 +89,9 @@
         android:text="test login"
         android:id="@+id/button2"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignRight="@+id/spinner1"
+        android:layout_alignEnd="@+id/spinner1"
+        android:layout_marginRight="57dp"
+        android:layout_marginEnd="57dp" />
 
 </RelativeLayout>

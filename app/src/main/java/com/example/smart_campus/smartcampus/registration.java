@@ -1,11 +1,13 @@
 package com.example.smart_campus.smartcampus;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,80 +16,134 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.backendless.Backendless;
+import com.backendless.BackendlessUser;
+import com.backendless.async.callback.AsyncCallback;
+import com.backendless.exceptions.BackendlessFault;
+
+import java.util.ArrayList;
 
 
-    public class registration extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-        static String[] account_type = { "Student", "HOD", "Faculty"  };
-        static String user_nameV,email_adressV,passwordV;
-        EditText username_ETobj,email_adressETobj,password_ETobj;
-        Button registerB;
-        Button temp;
+public class registration extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
-        Spinner dropdown;
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_registration);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-            username_ETobj=(EditText)findViewById(R.id.ET_name_id);
-            email_adressETobj=(EditText)findViewById(R.id.ET_emailadress_id);
-            password_ETobj=(EditText)findViewById(R.id.ET_password_id);
-            temp=(Button) findViewById(R.id.button2);
-            registerB=(Button)findViewById(R.id.register_button);
-            dropdown = (Spinner) findViewById(R.id.spinner1);
-            dropdown.setOnItemSelectedListener(this);
+    ArrayList<String> account_type = new ArrayList<String>();
+    //static String[] account_type = { "please select account type","Student", "HOD", "Faculty"  };
+    static String user_nameV, email_adressV, passwordV, account_categoryV;
+    EditText username_ETobj, email_adressETobj, password_ETobj;
+    Button registerB;
+    Button temp;
+    Spinner dropdown;
+    ProgressDialog loading_dialog;
 
-            //Creating the ArrayAdapter instance having the user category list
-            ArrayAdapter aa = new ArrayAdapter(this,android.R.layout.simple_spinner_item,account_type);
-            aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+    String compare_spinner_V = "please select account type";
 
-            //Setting the ArrayAdapter data on the Spinner
-            dropdown.setAdapter(aa);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_registration);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+        username_ETobj = (EditText) findViewById(R.id.ET_name_id);
+        email_adressETobj = (EditText) findViewById(R.id.ET_emailadress_id);
+        password_ETobj = (EditText) findViewById(R.id.ET_password_id);
+        account_type.add("please select account type");
+        account_type.add("Student");
+        account_type.add("HOD");
+        account_type.add("Faculty");
+        temp = (Button) findViewById(R.id.button2);
+        registerB = (Button) findViewById(R.id.register_button);
+        dropdown = (Spinner) findViewById(R.id.spinner1);
+        dropdown.setOnItemSelectedListener(this);
+
+        //Progress dialog to show loading of registration process
+        loading_dialog = new ProgressDialog(this);
+        loading_dialog.setCancelable(false);
+        loading_dialog.setMessage("Registering User");
+        loading_dialog.setTitle("Please wait");
+
+        //Creating the ArrayAdapter instance having the user category list
+        ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, account_type);
+        aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //Setting the ArrayAdapter data on the Spinner
+        dropdown.setAdapter(aa);
+
+//registering account
+        registerB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
+                //saving user data in strings
+                user_nameV = username_ETobj.getText().toString();
+                email_adressV = email_adressETobj.getText().toString();
+                passwordV = password_ETobj.getText().toString();
 
+                //checking if the values are empty
+                if (user_nameV.isEmpty() || email_adressV.isEmpty() || passwordV.isEmpty() || account_categoryV.isEmpty()) {
 
-            registerB.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    user_nameV=username_ETobj.getText().toString();
-                    email_adressV=email_adressETobj.getText().toString();
-                    passwordV=password_ETobj.getText().toString();
+                    Toast.makeText(registration.this, "Please the credentials properly", Toast.LENGTH_SHORT).show();
+                } else {
+                    loading_dialog.show();
+                    //setting the properties for backend server
+                    BackendlessUser user = new BackendlessUser();
+                    user.setProperty("email", email_adressV);
+                    user.setPassword(passwordV);
+                    user.setProperty("name", user_nameV);
+                    user.setProperty("category", account_categoryV);
+                    Backendless.UserService.register(user, new AsyncCallback<BackendlessUser>() {
+                        public void handleResponse(BackendlessUser registeredUser) {
 
-                    Toast.makeText(registration.this, ""+passwordV, Toast.LENGTH_SHORT).show();
+                            loading_dialog.cancel();
+                            Log.i("registration successful", "" + registeredUser.getEmail());
+                            Toast.makeText(registration.this, "registration successful", Toast.LENGTH_SHORT).show();
+
+                            // user has been registered and now can login
+                        }
+
+                        public void handleFault(BackendlessFault fault) {
+                            loading_dialog.cancel();
+                            Toast.makeText(registration.this, "registration failed", Toast.LENGTH_SHORT).show();
+                            Log.i("registration failed", "" + fault.getMessage());
+                            // an error has occurred, the error code can be retrieved with fault.getCode()
+                        }
+                    });
+
                 }
-            });
 
 
-            temp.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent nextact=new Intent(getApplicationContext(),login.class);
-                    startActivity(nextact);
+            }
+        });
 
-                }
-            });
+//to go to login activity
+        temp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nextact = new Intent(getApplicationContext(), login.class);
+                startActivity(nextact);
+                //right to left animation
+                overridePendingTransition(R.anim.right_left, R.anim.left_right);
 
-
-
-        }
-
-
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-
-
-        }
-
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-
-        }
-
-
+            }
+        });
 
 
     }
+
+
+    @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        if (account_type.contains("please select account type"))
+            account_type.remove(0);
+        else
+            account_categoryV = dropdown.getSelectedItem().toString();
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+
+}
 

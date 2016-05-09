@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.smart_campus.smartcampus.registration"
+    tools:showIn="@layout/activity_registration">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:id="@+id/register_button"
+        android:layout_marginBottom="66dp"
+        android:background="@drawable/custom_button"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/ET_name_id"
+        android:background="@drawable/rounded_edittext"
+        android:hint="enter name"
+        android:textColorHint="@color/abc_secondary_text_material_light"
+        android:textColor="#000000"
+        android:paddingLeft="5dp"
+        android:layout_above="@+id/ET_emailadress_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="49dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/ET_emailadress_id"
+        android:paddingLeft="5dp"
+        android:textColor="#000000"
+        android:textColorHint="@color/abc_secondary_text_material_light"
+        android:hint="enter email adress"
+        android:background="@drawable/rounded_edittext"
+        android:layout_above="@+id/ET_password_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="55dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:inputType="textPassword"
+        android:ems="10"
+        android:id="@+id/ET_password_id"
+        android:textColorHint="@color/abc_secondary_text_material_light"
+        android:textColor="#000000"
+        android:background="@drawable/rounded_edittext"
+        android:elegantTextHeight="false"
+        android:hint="enter password"
+        android:layout_above="@+id/register_button"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp" />
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/ET_name_id"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="46dp"
+        android:spinnerMode="dropdown"
+        android:background="@android:drawable/btn_dropdown" />
+
+</RelativeLayout>

@@ -24,7 +24,8 @@
         android:hint="enter valid username"
         android:background="@drawable/rounded_edittext"
         android:textColorHint="@color/abc_secondary_text_material_light"
-        android:paddingLeft="5dp" />
+        android:paddingLeft="5dp"
+        android:textColor="#000000" />
 
     <EditText
         android:layout_width="match_parent"
@@ -38,7 +39,8 @@
         android:background="@drawable/rounded_edittext"
         android:layout_marginTop="20dp"
         android:textColorHint="@color/abc_secondary_text_material_light"
-        android:paddingLeft="5dp" />
+        android:paddingLeft="5dp"
+        android:textColor="#000000" />
 
     <Button
         android:layout_width="wrap_content"
@@ -49,12 +51,4 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/custom_button" />
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="login"
-        android:id="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
 </RelativeLayout>

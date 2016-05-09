@@ -74,12 +74,21 @@
     <Spinner
         android:id="@+id/spinner1"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_marginBottom="46dp"
         android:spinnerMode="dropdown"
         android:background="@android:drawable/btn_dropdown"
         android:layout_above="@+id/ET_name_id"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test login"
+        android:id="@+id/button2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

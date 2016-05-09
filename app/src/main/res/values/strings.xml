@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">Smart Campus</string>
-    <string name="title_activity_registration">registration</string>
-    <string name="title_activity_login">login</string>
+    <string name="title_activity_registration">Registration</string>
+    <string name="title_activity_login">Login</string>
 </resources>

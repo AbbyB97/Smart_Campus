@@ -34,8 +34,8 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
     Button temp;
     Spinner dropdown;
     ProgressDialog loading_dialog;
+    int flag_dropdown=0;
 
-    String compare_spinner_V = "please select account type";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,21 +47,20 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         email_adressETobj = (EditText) findViewById(R.id.ET_emailadress_id);
         password_ETobj = (EditText) findViewById(R.id.ET_password_id);
         account_type.add("please select account type");
-        account_type.add("Student");
+       account_type.add("Student");
         account_type.add("HOD");
         account_type.add("Faculty");
         temp = (Button) findViewById(R.id.button2);
         registerB = (Button) findViewById(R.id.register_button);
         dropdown = (Spinner) findViewById(R.id.spinner1);
         dropdown.setOnItemSelectedListener(this);
-
         //Progress dialog to show loading of registration process
         loading_dialog = new ProgressDialog(this);
         loading_dialog.setCancelable(false);
         loading_dialog.setMessage("Registering User");
         loading_dialog.setTitle("Please wait");
-
         //Creating the ArrayAdapter instance having the user category list
+
         ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, account_type);
         aa.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -133,9 +132,12 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        if (account_type.contains("please select account type"))
-            account_type.remove(0);
-        else
+        if (flag_dropdown==0) {
+            account_type.remove("please select account type");
+            account_type.add(0,"");
+            flag_dropdown=1;
+
+        } else
             account_categoryV = dropdown.getSelectedItem().toString();
     }
 

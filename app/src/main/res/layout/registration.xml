@@ -17,11 +17,13 @@
         android:layout_height="wrap_content"
         android:text="Register"
         android:id="@+id/register_button"
-        android:layout_marginBottom="66dp"
         android:background="@drawable/custom_button"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="100dp"
+        android:textColor="@color/abc_primary_text_material_light"
+        android:textSize="25dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -37,7 +39,7 @@
         android:layout_above="@+id/ET_emailadress_id"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="49dp" />
+        android:layout_marginBottom="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -53,7 +55,7 @@
         android:layout_above="@+id/ET_password_id"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="55dp" />
+        android:layout_marginBottom="20dp" />
 
     <EditText
         android:layout_width="match_parent"
@@ -64,23 +66,45 @@
         android:textColorHint="@color/abc_secondary_text_material_light"
         android:textColor="#000000"
         android:background="@drawable/rounded_edittext"
-        android:elegantTextHeight="false"
-        android:hint="enter password"
         android:layout_above="@+id/register_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="40dp" />
+        android:layout_marginBottom="80dp"
+        android:password="false"
+        android:hint="enter password"
+        android:paddingLeft="5dp" />
 
-    <Spinner
-        android:id="@+id/spinner1"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_marginBottom="46dp"
-        android:spinnerMode="dropdown"
-        android:background="@android:drawable/btn_dropdown"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinnerlayout"
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentStart="true"
         android:layout_above="@+id/ET_name_id"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="20dp">
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/spinner1"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_edittext"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@drawable/rounded_edittext"
+            android:paddingLeft="5dp" />
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/spinner_converted_one"
+            android:adjustViewBounds="true"
+            android:layout_alignTop="@+id/spinner1"
+            android:layout_alignBottom="@+id/spinner1"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/spinner1"
+            android:layout_alignEnd="@+id/spinner1" />
+
+    </RelativeLayout>
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -88,10 +112,10 @@
         android:layout_height="wrap_content"
         android:text="test login"
         android:id="@+id/button2"
-        android:layout_alignParentTop="true"
-        android:layout_alignRight="@+id/spinner1"
-        android:layout_alignEnd="@+id/spinner1"
-        android:layout_marginRight="57dp"
-        android:layout_marginEnd="57dp" />
+        android:textSize="20dp"
+        android:layout_above="@+id/register_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

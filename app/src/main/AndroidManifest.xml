@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".splash"
-            android:theme="@style/Theme.Design.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -24,19 +24,19 @@
         <activity
             android:name=".registration"
             android:label="@string/title_activity_registration"
-            android:theme="@style/Theme.Design.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
             android:name=".login"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.Design.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
         <activity
             android:name=".forgot_password"
             android:label="@string/title_activity_forgot_password"
-            android:theme="@style/Theme.Design.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar">
 
         </activity>
     </application>

@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.smart_campus.smartcampus.registration"
-    tools:showIn="@layout/activity_registration">
+    tools:showIn="@layout/activity_registration"
+    android:background="@color/background_material_dark">
 
     <Button
         android:layout_width="match_parent"

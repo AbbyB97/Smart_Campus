@@ -10,7 +10,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.smart_campus.smartcampus.login"
-    tools:showIn="@layout/activity_login">
+    tools:showIn="@layout/activity_login"
+    android:background="@color/background_material_dark">
 
     <EditText
         android:layout_width="match_parent"
@@ -62,6 +63,7 @@
         android:layout_below="@+id/login_Button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:onClick="gotoforgotpassword" />
+        android:onClick="gotoforgotpassword"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

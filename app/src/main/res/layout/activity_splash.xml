@@ -16,7 +16,7 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:id="@+id/splashtxt"
-        android:textSize="50dp"
+        android:textSize="60dp"
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/abc_primary_text_material_dark" />

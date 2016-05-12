@@ -18,5 +18,6 @@
         android:id="@+id/splashtxt"
         android:textSize="50dp"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/abc_primary_text_material_dark" />
 </RelativeLayout>

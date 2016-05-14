@@ -24,7 +24,7 @@ public class hod_main extends AppCompatActivity {
                 .setCancelable(false)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
-
+                        // clearing sharedpreferences' data after user clicks logout
                         SharedPreferences.Editor shared_editor = getSharedPreferences("Login_status", MODE_PRIVATE).edit();
                         shared_editor.clear();
                         shared_editor.putString("account_type",null);

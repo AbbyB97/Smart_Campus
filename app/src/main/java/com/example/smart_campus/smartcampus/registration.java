@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.backendless.Backendless;
@@ -31,7 +32,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
     static String user_nameV, email_adressV, passwordV, account_categoryV;
     EditText username_ETobj, email_adressETobj, password_ETobj;
     Button registerB;
-    Button temp;
+    TextView loginB;
     Spinner dropdown;
     ProgressDialog loading_dialog;
     int flag_dropdown=0;
@@ -50,7 +51,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
        account_type.add("Student");
         account_type.add("HOD");
         account_type.add("Faculty");
-        temp = (Button) findViewById(R.id.button2);
+        loginB = (TextView) findViewById(R.id.already_registered_TV);
         registerB = (Button) findViewById(R.id.register_button);
         dropdown = (Spinner) findViewById(R.id.spinner1);
         dropdown.setOnItemSelectedListener(this);
@@ -59,6 +60,9 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         loading_dialog.setCancelable(false);
         loading_dialog.setMessage("Registering User");
         loading_dialog.setTitle("Please wait");
+        account_categoryV="please select account type";
+       final  String registration_error="Unable to register user. User already exists.";
+
         //Creating the ArrayAdapter instance having the user category list
 
         ArrayAdapter aa = new ArrayAdapter(this, android.R.layout.simple_spinner_item, account_type);
@@ -73,16 +77,26 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
             public void onClick(View v) {
 
 
+
+
+
                 //saving user data in strings
                 user_nameV = username_ETobj.getText().toString();
                 email_adressV = email_adressETobj.getText().toString();
                 passwordV = password_ETobj.getText().toString();
 
                 //checking if the values are empty
-                if (user_nameV.isEmpty() || email_adressV.isEmpty() || passwordV.isEmpty() || account_categoryV.isEmpty()) {
+                if (user_nameV.isEmpty() || email_adressV.isEmpty() || passwordV.isEmpty() || account_categoryV.isEmpty() ) {
 
-                    Toast.makeText(registration.this, "Please the credentials properly", Toast.LENGTH_SHORT).show();
-                } else {
+                    Toast.makeText(registration.this, "Please enter the credentials properly", Toast.LENGTH_SHORT).show();
+                    loading_dialog.cancel();
+                }
+                else if(account_categoryV=="please select account type"){
+                    Toast.makeText(registration.this, "please select account type", Toast.LENGTH_SHORT).show();
+                    loading_dialog.cancel();
+                }
+
+                else {
                     loading_dialog.show();
                     //setting the properties for backend server
                     BackendlessUser user = new BackendlessUser();
@@ -97,25 +111,36 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                             Log.i("registration successful", "" + registeredUser.getEmail());
                             Toast.makeText(registration.this, "registration successful", Toast.LENGTH_SHORT).show();
 
+                            Intent nextact_login=new Intent( getApplicationContext(), login.class);
+                            startActivity(nextact_login);
+                            overridePendingTransition(R.anim.right_left, R.anim.left_right);
+                            Toast.makeText(registration.this, "Login in using the entered credentials", Toast.LENGTH_SHORT).show();
+
+
                             // user has been registered and now can login
                         }
 
                         public void handleFault(BackendlessFault fault) {
                             loading_dialog.cancel();
-                            Toast.makeText(registration.this, "registration failed", Toast.LENGTH_SHORT).show();
+
+                            if(fault.getCode().equals("3033"))
+                            {
+                                Toast.makeText(registration.this, "user already exists", Toast.LENGTH_SHORT).show();
+                            }
+                           Toast.makeText(registration.this, "registration failed", Toast.LENGTH_SHORT).show();
                             Log.i("registration failed", "" + fault.getMessage());
                             // an error has occurred, the error code can be retrieved with fault.getCode()
                         }
+
                     });
 
+
                 }
-
-
             }
         });
 
 //to go to login activity
-        temp.setOnClickListener(new View.OnClickListener() {
+        loginB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent nextact = new Intent(getApplicationContext(), login.class);

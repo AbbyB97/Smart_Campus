@@ -66,4 +66,16 @@
         android:onClick="gotoforgotpassword"
         android:textColor="#ffffff" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Register account"
+        android:id="@+id/register_ac_TV"
+        android:layout_marginTop="29dp"
+        android:onClick="register_act"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/forgot_password_T"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>

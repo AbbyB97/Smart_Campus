@@ -1,7 +1,9 @@
 package com.example.smart_campus.smartcampus;
 
 import android.app.ProgressDialog;
+import android.app.VoiceInteractor;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -20,6 +22,12 @@ import com.backendless.Backendless;
 import com.backendless.BackendlessUser;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.property.UserProperty;
+import com.example.smart_campus.smartcampus.faculty.faculty_main;
+import com.example.smart_campus.smartcampus.hod.hod_main;
+import com.example.smart_campus.smartcampus.student.student_main;
+
+import java.util.List;
 
 public class login extends AppCompatActivity {
     ProgressDialog loading_dialog;
@@ -48,6 +56,9 @@ public class login extends AppCompatActivity {
         loading_dialog.setMessage("logging in");
         loading_dialog.setTitle("Please wait");
 
+//Shared preferences for maintaining user login
+       final SharedPreferences.Editor shared_editor = getSharedPreferences("Login_status", MODE_PRIVATE).edit();
+
 
 //Loggin in with registered account
         loginBobj.setOnClickListener(new View.OnClickListener() {
@@ -66,9 +77,55 @@ public class login extends AppCompatActivity {
 
                         public void handleResponse(BackendlessUser user) {
                             loading_dialog.cancel();
-                            Toast.makeText(login.this, "logged in as " + user.getProperty("name"), Toast.LENGTH_SHORT).show();
+
+
+                          //retrieving user account type
+
+                            //HOD account login
+                            registration.account_categoryV= (String) user.getProperty("category");
+
+                            if(registration.account_categoryV.equals("HOD"))
+                            {
+                                shared_editor.putString("account_type",registration.account_categoryV);
+                                shared_editor.putBoolean("firstlogin",false);
+                                shared_editor.apply();
+                                Intent nextact_hodM=new Intent( getApplicationContext(),hod_main.class);
+                                startActivity(nextact_hodM);
+                                overridePendingTransition(R.anim.fadin, R.anim.fadout);
+
+                            }
+
+
+
+                            //Faculty account login
+                            if(registration.account_categoryV.equals("Faculty"))
+                            {
+                                shared_editor.putString("account_type",registration.account_categoryV);
+                                shared_editor.putBoolean("firstlogin",false);
+                                shared_editor.apply();
+                                Intent nextact_faculty_M=new Intent( getApplicationContext(),faculty_main.class);
+                                startActivity(nextact_faculty_M);
+                                overridePendingTransition(R.anim.fadin, R.anim.fadout);
+                            }
+
+
+                            //Student account login
+                            if(registration.account_categoryV.equals("Student"))
+                            {
+                                shared_editor.putString("account_type",registration.account_categoryV);
+                                shared_editor.putBoolean("firstlogin",false);
+                                shared_editor.apply();
+                                Intent nextact_student_M=new Intent( getApplicationContext(),student_main.class);
+                                startActivity(nextact_student_M);
+                                overridePendingTransition(R.anim.fadin, R.anim.fadout);
+
+                            }
+
+                            Toast.makeText(login.this, "Logged in as " + user.getProperty("name")+" with Account Type:"+registration.account_categoryV, Toast.LENGTH_LONG).show();
                             Log.i("log in successful", "" + user.getProperty("name"));
                             // user has been logged in
+
+
                         }
 
                         public void handleFault(BackendlessFault fault) {
@@ -92,6 +149,12 @@ public class login extends AppCompatActivity {
                 overridePendingTransition(R.anim.fadin, R.anim.fadout);
             }
         });
+    }
+
+    public void register_act(View v){
+        Intent reg_act= new Intent( this,registration.class);
+        startActivity(reg_act);
+        overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
     }
 
 

@@ -19,12 +19,12 @@
         android:text="Register"
         android:id="@+id/register_button"
         android:background="@drawable/custom_button"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="143dp"
         android:textColor="@color/abc_primary_text_material_light"
-        android:textSize="25dp" />
+        android:textSize="25dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="match_parent"
@@ -67,13 +67,13 @@
         android:textColorHint="@color/abc_secondary_text_material_light"
         android:textColor="#000000"
         android:background="@drawable/rounded_edittext"
-        android:layout_above="@+id/register_button"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="80dp"
         android:password="false"
         android:hint="enter password"
-        android:paddingLeft="5dp" />
+        android:paddingLeft="5dp"
+        android:layout_above="@+id/register_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="30dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -107,16 +107,15 @@
 
     </RelativeLayout>
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="test login"
-        android:id="@+id/button2"
-        android:textSize="20dp"
-        android:layout_above="@+id/register_button"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="Already Registered?"
+        android:id="@+id/already_registered_TV"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="20dp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="69dp"
+        android:textColor="#ffffff" />
 
 </RelativeLayout>

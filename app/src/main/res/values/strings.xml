@@ -3,4 +3,7 @@
     <string name="title_activity_registration">Registration</string>
     <string name="title_activity_login">Login</string>
     <string name="title_activity_forgot_password">Reset Password</string>
+    <string name="title_activity_faculty_main">faculty_main</string>
+    <string name="title_activity_hod_main">hod_main</string>
+    <string name="title_activity_student_main">student_main</string>
 </resources>

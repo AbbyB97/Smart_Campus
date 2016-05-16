@@ -2,6 +2,7 @@ package com.example.smart_campus.smartcampus;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -52,7 +53,11 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         account_type.add("HOD");
         account_type.add("Faculty");
         loginB = (TextView) findViewById(R.id.already_registered_TV);
+
         registerB = (Button) findViewById(R.id.register_button);
+        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
+        registerB.setTypeface(type);
+
         dropdown = (Spinner) findViewById(R.id.spinner1);
         dropdown.setOnItemSelectedListener(this);
         //Progress dialog to show loading of registration process

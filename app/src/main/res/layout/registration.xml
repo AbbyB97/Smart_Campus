@@ -108,7 +108,7 @@
     </RelativeLayout>
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Already Registered?"
@@ -116,6 +116,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="69dp"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="20dp" />
 
 </RelativeLayout>

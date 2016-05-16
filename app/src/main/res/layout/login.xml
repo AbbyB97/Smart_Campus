@@ -52,10 +52,10 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/custom_button"
         android:textColor="@color/abc_primary_text_material_light"
-        android:textSize="25dp" />
+        android:textSize="35dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Forgot password"
@@ -64,10 +64,12 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
         android:onClick="gotoforgotpassword"
-        android:textColor="#ffffff" />
+        android:textColor="#ffffff"
+        android:gravity="center"
+        android:textSize="20dp" />
 
     <TextView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Register account"
@@ -76,6 +78,8 @@
         android:onClick="register_act"
         android:textColor="#ffffff"
         android:layout_below="@+id/forgot_password_T"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:textSize="20dp" />
 
 </RelativeLayout>

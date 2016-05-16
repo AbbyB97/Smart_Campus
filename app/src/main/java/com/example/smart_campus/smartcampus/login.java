@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.app.VoiceInteractor;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -36,7 +37,6 @@ public class login extends AppCompatActivity {
     EditText username_ETobj, password_ETobj;
     static String username_stV, password_stV;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +45,9 @@ public class login extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         loginBobj = (Button) findViewById(R.id.login_Button);
+        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
+        loginBobj.setTypeface(type);
+
         username_ETobj = (EditText) findViewById(R.id.login_username_ET);
         password_ETobj = (EditText) findViewById(R.id.login_passwordET);
         forgot_PW_Tobj = (TextView) findViewById(R.id.forgot_password_T);

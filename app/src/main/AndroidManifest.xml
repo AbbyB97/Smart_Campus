@@ -44,7 +44,8 @@
         <activity
             android:name=".student.student_main"
             android:label="@string/title_activity_student_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".student.student_schedule_v"></activity>
     </application>
 
 </manifest>

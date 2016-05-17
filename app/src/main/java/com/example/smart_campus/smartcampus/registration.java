@@ -38,6 +38,13 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
     ProgressDialog loading_dialog;
     int flag_dropdown=0;
 
+    @Override
+    public void onBackPressed() {
+        Intent backact= new Intent( getApplicationContext(),login.class);
+        startActivity(backact);
+
+        overridePendingTransition(R.anim.right_left, R.anim.left_right);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +56,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         email_adressETobj = (EditText) findViewById(R.id.ET_emailadress_id);
         password_ETobj = (EditText) findViewById(R.id.ET_password_id);
         account_type.add("please select account type");
-       account_type.add("Student");
+        account_type.add("Student");
         account_type.add("HOD");
         account_type.add("Faculty");
         loginB = (TextView) findViewById(R.id.already_registered_TV);
@@ -60,6 +67,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
         dropdown = (Spinner) findViewById(R.id.spinner1);
         dropdown.setOnItemSelectedListener(this);
+
         //Progress dialog to show loading of registration process
         loading_dialog = new ProgressDialog(this);
         loading_dialog.setCancelable(false);
@@ -136,10 +144,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                             Log.i("registration failed", "" + fault.getMessage());
                             // an error has occurred, the error code can be retrieved with fault.getCode()
                         }
-
                     });
-
-
                 }
             }
         });

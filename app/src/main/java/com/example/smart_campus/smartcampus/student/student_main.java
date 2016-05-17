@@ -39,6 +39,7 @@ public class student_main extends AppCompatActivity {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
+
                     }
                 });
         android.app.AlertDialog alert = builder.create();
@@ -54,4 +55,12 @@ public class student_main extends AppCompatActivity {
 
     }
 
+
+    public void goto_Timetable (View v)
+    {
+        Intent TT=new Intent( this, student_schedule_v.class);
+        startActivity(TT);
+        overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
+
+    }
 }

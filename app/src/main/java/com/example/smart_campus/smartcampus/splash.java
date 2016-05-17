@@ -33,7 +33,7 @@ public class splash extends AppCompatActivity {
                     boolean firstlogin=shared_editor.getBoolean("firstlogin",true);
                     if(type==null && firstlogin==true)
                     {
-                        Intent gotologin=new Intent(getApplicationContext(),registration.class);
+                        Intent gotologin=new Intent(getApplicationContext(),login.class);
                         startActivity(gotologin);
                         overridePendingTransition(R.anim.fadin, R.anim.fadout);
                         finish();

@@ -50,7 +50,7 @@
         android:id="@+id/login_Button"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/x_custom_button"
         android:textColor="@color/abc_primary_text_material_light"
         android:textSize="35dp" />
 

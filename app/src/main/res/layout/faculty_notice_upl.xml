@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.smart_campus.smartcampus.faculty.faculty_notice_upl">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Enter Title :"
+        android:id="@+id/hodnoticettl"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/titleEDTX"
+        android:layout_below="@+id/hodnoticettl"
+        android:layout_alignLeft="@+id/hodnoticettl"
+        android:layout_alignStart="@+id/hodnoticettl"
+        android:background="@drawable/background_list_item"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="Enter Title"
+        android:paddingLeft="5dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Enter Content :"
+        android:id="@+id/hodnoticecont"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_below="@+id/titleEDTX"
+        android:layout_alignLeft="@+id/titleEDTX"
+        android:layout_alignStart="@+id/titleEDTX"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/contEDTX"
+        android:background="@drawable/background_list_item"
+        android:hint="Enter Content"
+        android:paddingLeft="5dp"
+        android:layout_below="@+id/hodnoticecont"
+        android:layout_alignLeft="@+id/hodnoticecont"
+        android:layout_alignStart="@+id/hodnoticecont"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="10dp"
+        android:lines="10"
+        android:gravity="top|left"
+        android:paddingTop="5dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upload"
+        android:id="@+id/hodnotice_uplBTN"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/x_custom_button"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:layout_below="@+id/contEDTX"
+        android:textSize="30dp"
+        android:layout_alignRight="@+id/contEDTX"
+        android:layout_alignEnd="@+id/contEDTX"
+        android:layout_alignLeft="@+id/contEDTX"
+        android:layout_alignStart="@+id/contEDTX" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:text="or"
+        android:id="@+id/textView"
+        android:layout_below="@+id/hodnotice_uplBTN"
+        android:layout_centerHorizontal="true"
+        android:textSize="25dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Notice List"
+        android:id="@+id/hodnotice_uplBTN_toList"
+        android:background="@drawable/x_custom_button"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:textSize="28dp"
+        android:layout_below="@+id/textView"
+        android:layout_alignRight="@+id/hodnotice_uplBTN"
+        android:layout_alignEnd="@+id/hodnotice_uplBTN"
+        android:layout_alignLeft="@+id/hodnotice_uplBTN"
+        android:layout_alignStart="@+id/hodnotice_uplBTN" />
+
+</RelativeLayout>

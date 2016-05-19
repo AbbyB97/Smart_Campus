@@ -136,7 +136,7 @@ public class login extends AppCompatActivity {
         ex=new android.app.AlertDialog.Builder(this).setTitle("Exit ?").setMessage("Do You Want To Exit").setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                finish();
+                login.this.finish();
             }
         }).setNegativeButton("No", new DialogInterface.OnClickListener() {
             @Override

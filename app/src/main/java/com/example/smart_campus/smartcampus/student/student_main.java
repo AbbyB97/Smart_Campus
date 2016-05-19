@@ -4,16 +4,42 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.smart_campus.smartcampus.R;
 import com.example.smart_campus.smartcampus.login;
 
 public class student_main extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_student_main);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
+
+    }
+
+    public void Attendance(View v){
+        Toast.makeText(this, "Attendance is clicked", Toast.LENGTH_SHORT).show();}
+
+    public void Manual(View v){Toast.makeText(this, "Manual is clicked", Toast.LENGTH_SHORT).show();}
+    public void Schedule(View v){
+        Intent i=new Intent(this,student_schedule.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
+        Toast.makeText(this, "Schedule is clicked", Toast.LENGTH_SHORT).show();
+    }
+    public void Notice(View v){
+        Intent i=new Intent(this,student_notice_list.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
+        Toast.makeText(this, "Notice is clicked", Toast.LENGTH_SHORT).show();}
+    public void Teacher(View v){Toast.makeText(this, "Teacher is clicked", Toast.LENGTH_SHORT).show();}
+    public void H_O_D(View v){Toast.makeText(this, "H.O.D is clicked", Toast.LENGTH_SHORT).show();}
 
     @Override
     public void onBackPressed() {
@@ -31,8 +57,10 @@ public class student_main extends AppCompatActivity {
                         shared_editor.putBoolean("firstlogin",true);
                         shared_editor.apply();
 
-                        Intent nextact = new Intent(getApplicationContext(), login.class);
+                       /* Intent nextact = new Intent(getApplicationContext(), login.class);
                         startActivity(nextact);
+                        */
+                        student_main.this.finish();
                         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
                     }
                 })
@@ -44,23 +72,5 @@ public class student_main extends AppCompatActivity {
                 });
         android.app.AlertDialog alert = builder.create();
         alert.show();
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_student_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-    }
-
-
-    public void goto_Timetable (View v)
-    {
-        Intent TT=new Intent( this, student_schedule_v.class);
-        startActivity(TT);
-        overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
-
     }
 }

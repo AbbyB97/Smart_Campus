@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.smart_campus.smartcampus.hod.hod_notice_dash">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@drawable/background_spinner_popup"
+        android:layout_below="@+id/textView4"
+        android:baselineAligned="false"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Notice Title :"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/accent_material_light"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp"
+            android:layout_marginTop="5dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/ttlTV"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/background_material_dark"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Notice Content :"
+            android:id="@+id/textView2"
+            android:textColor="@color/accent_material_light"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/contTV"
+            android:layout_gravity="center_horizontal"
+            android:lines="10"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/background_material_dark"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="From :"
+            android:id="@+id/textView3"
+            android:textColor="@color/accent_material_light"
+            android:textSize="21dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/fromTV"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/background_material_dark"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            android:paddingLeft="10dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="| Notice |"
+        android:id="@+id/textView4"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textColor="@color/colorAccent"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

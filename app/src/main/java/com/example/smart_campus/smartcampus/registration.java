@@ -4,8 +4,6 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -39,14 +37,6 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
     int flag_dropdown=0;
 
     @Override
-    public void onBackPressed() {
-        Intent backact= new Intent( getApplicationContext(),login.class);
-        startActivity(backact);
-
-        overridePendingTransition(R.anim.right_left, R.anim.left_right);
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
@@ -59,7 +49,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         account_type.add("Student");
         account_type.add("HOD");
         account_type.add("Faculty");
-        loginB = (TextView) findViewById(R.id.already_registered_TV);
+        account_type.add("Faculty");
 
         registerB = (Button) findViewById(R.id.register_button);
         Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
@@ -88,11 +78,6 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         registerB.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-
-
-
                 //saving user data in strings
                 user_nameV = username_ETobj.getText().toString();
                 email_adressV = email_adressETobj.getText().toString();
@@ -148,22 +133,7 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
                 }
             }
         });
-
-//to go to login activity
-        loginB.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent nextact = new Intent(getApplicationContext(), login.class);
-                startActivity(nextact);
-                //right to left animation
-                overridePendingTransition(R.anim.right_left, R.anim.left_right);
-
-            }
-        });
-
-
     }
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -176,9 +146,18 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
             account_categoryV = dropdown.getSelectedItem().toString();
     }
 
+
     @Override
     public void onNothingSelected(AdapterView<?> parent) {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent backact= new Intent( getApplicationContext(),login.class);
+        startActivity(backact);
+        finish();
+        overridePendingTransition(R.anim.right_left, R.anim.left_right);
     }
 
 

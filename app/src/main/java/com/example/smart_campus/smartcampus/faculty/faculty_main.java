@@ -41,7 +41,7 @@ public class faculty_main extends AppCompatActivity {
     public void Notice(View v){
         Intent i=new Intent(this,faculty_notice_upl.class);
         startActivity(i);
-        overridePendingTransition(R.anim.anim_in,R.anim.anim_out);
+        overridePendingTransition(R.anim.right_left, R.anim.left_right);
         Toast.makeText(this, "Notice is clicked", Toast.LENGTH_SHORT).show();}
     public void Teacher(View v){Toast.makeText(this, "Teacher is clicked", Toast.LENGTH_SHORT).show();}
     public void H_O_D(View v){Toast.makeText(this, "H.O.D is clicked", Toast.LENGTH_SHORT).show();}

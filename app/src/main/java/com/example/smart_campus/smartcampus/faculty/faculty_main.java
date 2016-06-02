@@ -48,7 +48,7 @@ public class faculty_main extends AppCompatActivity {
     @Override
     public void onBackPressed() {
 
-        android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Warning");
         builder.setMessage("Do you really want to logout")
                 .setCancelable(false)
@@ -71,9 +71,8 @@ public class faculty_main extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
-        android.app.AlertDialog alert = builder.create();
+        AlertDialog alert = builder.create();
         alert.show();
-
 
 
     }

@@ -154,12 +154,9 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
 
     @Override
     public void onBackPressed() {
-        Intent backact= new Intent( getApplicationContext(),login.class);
-        startActivity(backact);
+        super.onBackPressed();
         finish();
-        overridePendingTransition(R.anim.right_left, R.anim.left_right);
+        overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
     }
-
-
 }
 

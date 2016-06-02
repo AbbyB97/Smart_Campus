@@ -17,6 +17,7 @@ import com.backendless.BackendlessCollection;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.example.smart_campus.smartcampus.API.Notice;
+import com.example.smart_campus.smartcampus.API.ProgressWheel;
 import com.example.smart_campus.smartcampus.R;
 
 import java.util.ArrayList;
@@ -28,11 +29,13 @@ public class hod_notice_list extends AppCompatActivity {
     ArrayList<String> noticearry=new ArrayList<>();
     ArrayList<String> object_id=new ArrayList<>();
     TextView rowitem;
+    ProgressWheel pw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.hod_notice_list);
+        pw=(ProgressWheel)findViewById(R.id.progress_wheel);
 
         rowitem=(TextView)findViewById(R.id.rowItem);
         noticels=(ListView)findViewById(R.id.noticeLIST);
@@ -44,6 +47,7 @@ public class hod_notice_list extends AppCompatActivity {
                 for(Notice a:not){
                     noticeadapt.add(a.getTitle());
                     noticeadapt.notifyDataSetChanged();
+                    pw.stopSpinning();
                     object_id.add(a.getObjectId());
                 }
                 // a Contact instance has been found by ObjectId

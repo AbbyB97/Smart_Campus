@@ -16,6 +16,7 @@ import com.backendless.BackendlessCollection;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.example.smart_campus.smartcampus.API.Notice;
+import com.example.smart_campus.smartcampus.API.ProgressWheel;
 import com.example.smart_campus.smartcampus.R;
 import com.example.smart_campus.smartcampus.hod.hod_notice_dash;
 
@@ -29,11 +30,13 @@ public class faculty_notice_list extends AppCompatActivity {
     ArrayList<String> noticearry=new ArrayList<>();
     ArrayList<String> object_id=new ArrayList<>();
     TextView rowitem;
+    ProgressWheel pw;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faculty_notice_list);
+        pw=(ProgressWheel)findViewById(R.id.progress_wheel);
 
         rowitem=(TextView)findViewById(R.id.rowItem);
         noticels=(ListView)findViewById(R.id.noticeLIST);
@@ -45,6 +48,7 @@ public class faculty_notice_list extends AppCompatActivity {
                 for(Notice a:not){
                     noticeadapt.add(a.getTitle());
                     noticeadapt.notifyDataSetChanged();
+                    pw.stopSpinning();
                     object_id.add(a.getObjectId());
                 }
                 // a Contact instance has been found by ObjectId
@@ -64,7 +68,7 @@ public class faculty_notice_list extends AppCompatActivity {
                 Toast.makeText(faculty_notice_list.this, "Clicked : "+temp, Toast.LENGTH_SHORT).show();
                 int indexObid=(int)parent.getItemIdAtPosition(position);
                 String onidstr= object_id.get(indexObid);
-                Intent intent = new Intent(getApplicationContext(),hod_notice_dash.class);
+                Intent intent = new Intent(getApplicationContext(),faculty_notice_dash.class);
                 intent.putExtra("objkey",onidstr);
                 startActivity(intent);
                 Log.i("Item Index :--","Index :--"+indexObid);

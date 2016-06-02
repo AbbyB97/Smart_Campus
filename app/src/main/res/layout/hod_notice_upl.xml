@@ -4,6 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.smart_campus.smartcampus.hod.hod_notice_upl">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,5 +111,6 @@
         android:layout_alignEnd="@+id/hodnotice_uplBTN"
         android:layout_alignLeft="@+id/hodnotice_uplBTN"
         android:layout_alignStart="@+id/hodnotice_uplBTN" />
-
+    </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>

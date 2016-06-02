@@ -19,6 +19,7 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 import com.backendless.persistence.BackendlessDataQuery;
 import com.backendless.persistence.QueryOptions;
+import com.example.smart_campus.smartcampus.API.ProgressWheel;
 import com.example.smart_campus.smartcampus.API.schedule;
 import com.example.smart_campus.smartcampus.R;
 
@@ -30,6 +31,7 @@ public class faculty_schedule extends AppCompatActivity implements AdapterView.O
     TextView edp;
     ListView lecturels;
     Spinner daysls;
+    ProgressWheel pwd;
     ArrayList<String> lecturelsarry=new ArrayList<String>();
     ArrayList<String> daylsarry=new ArrayList<String>();
     ArrayAdapter<String> lectureadap,dayadapt;
@@ -37,13 +39,13 @@ public class faculty_schedule extends AppCompatActivity implements AdapterView.O
     ArrayList<String> datas=new ArrayList<String>();
     QueryOptions qry;
     BackendlessDataQuery bqry;
-    ProgressDialog loading;
     public static int data_changed=0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.faculty_schedule);
 
+        pwd=(ProgressWheel)findViewById(R.id.progress_wheel);
         edp=(TextView)findViewById(R.id.rowItem);
         daysls=(Spinner)findViewById(R.id.dayspinid);
         daylsarry.add("Monday");
@@ -52,18 +54,13 @@ public class faculty_schedule extends AppCompatActivity implements AdapterView.O
         daylsarry.add("Thursday");
         daylsarry.add("Friday");
         daylsarry.add("Saturday");
-        loading=new ProgressDialog(this);
-        loading.setTitle("Getting Data");
-        loading.setMessage("Please Wait...");
-        loading.setCancelable(false);
-        loading.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dayadapt=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,daylsarry);
         dayadapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         daysls.setAdapter(dayadapt);
         daysls.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                loading.show();
+                pwd.spin();
                 dayselected=parent.getSelectedItem().toString();
                 daysls.setEnabled(false);
                 lectureadap.clear();
@@ -83,36 +80,42 @@ public class faculty_schedule extends AppCompatActivity implements AdapterView.O
                                         String tp = a.get(i).getMonday();
                                         lectureadap.add(tp);
                                         lectureadap.notifyDataSetChanged();
+                                        pwd.stopSpinning();
                                         break;
                                     }
                                     case "Tuesday": {
                                         String tp = a.get(i).getTuesday();
                                         lectureadap.add(tp);
                                         lectureadap.notifyDataSetChanged();
+                                        pwd.stopSpinning();
                                         break;
                                     }
                                     case "Wednesday": {
                                         String tp = a.get(i).getWednesday();
                                         lectureadap.add(tp);
                                         lectureadap.notifyDataSetChanged();
+                                        pwd.stopSpinning();
                                         break;
                                     }
                                     case "Thursday": {
                                         String tp = a.get(i).getThursday();
                                         lectureadap.add(tp);
                                         lectureadap.notifyDataSetChanged();
+                                        pwd.stopSpinning();
                                         break;
                                     }
                                     case "Friday": {
                                         String tp = a.get(i).getFriday();
                                         lectureadap.add(tp);
                                         lectureadap.notifyDataSetChanged();
+                                        pwd.stopSpinning();
                                         break;
                                     }
                                     case "Saturday": {
                                         String tp = a.get(i).getSaturday();
                                         lectureadap.add(tp);
                                         lectureadap.notifyDataSetChanged();
+                                        pwd.stopSpinning();
                                         break;
                                     }
                                 }
@@ -122,7 +125,6 @@ public class faculty_schedule extends AppCompatActivity implements AdapterView.O
                             System.out.println("data : "+f);
                             Log.i("DATA RETRIVAL :","Data get is --"+a.size());
                             daysls.setEnabled(true);
-                            loading.cancel();
                         }
                         @Override
                         public void handleFault( BackendlessFault fault )

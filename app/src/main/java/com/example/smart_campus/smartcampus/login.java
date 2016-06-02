@@ -36,7 +36,7 @@ public class login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        Log.i("Acitivty ", "is created");
         loginBobj = (Button) findViewById(R.id.login_Button);
         Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
         loginBobj.setTypeface(type);
@@ -84,6 +84,7 @@ public class login extends AppCompatActivity {
                                 shared_editor.apply();
                                 Intent nextact_hodM=new Intent( getApplicationContext(),hod_main.class);
                                 startActivity(nextact_hodM);
+                                login.this.finish();
                                 overridePendingTransition(R.anim.fadin, R.anim.fadout);
 
                             }
@@ -95,6 +96,7 @@ public class login extends AppCompatActivity {
                                 shared_editor.apply();
                                 Intent nextact_faculty_M=new Intent( getApplicationContext(),faculty_main.class);
                                 startActivity(nextact_faculty_M);
+                                login.this.finish();
                                 overridePendingTransition(R.anim.fadin, R.anim.fadout);
                             }
                             //Student account login
@@ -105,6 +107,7 @@ public class login extends AppCompatActivity {
                                 shared_editor.apply();
                                 Intent nextact_student_M=new Intent( getApplicationContext(),student_main.class);
                                 startActivity(nextact_student_M);
+                                login.this.finish();
                                 overridePendingTransition(R.anim.fadin, R.anim.fadout);
 
                             }

@@ -37,7 +37,7 @@ public class hod_notice_upl extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(hod_notice_upl.this, "User hasn't been logged", Toast.LENGTH_SHORT ).show();
+//            Toast.makeText(hod_notice_upl.this, "User hasn't been logged", Toast.LENGTH_SHORT ).show();
         }
         title=(EditText)findViewById(R.id.titleEDTX);
         content=(EditText)findViewById(R.id.contEDTX);

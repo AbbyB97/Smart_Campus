@@ -36,7 +36,7 @@ public class faculty_notice_upl extends AppCompatActivity {
         }
         else
         {
-            Toast.makeText(faculty_notice_upl.this, "User hasn't been logged", Toast.LENGTH_SHORT ).show();
+//            Toast.makeText(faculty_notice_upl.this, "User hasn't been logged", Toast.LENGTH_SHORT ).show();
         }
         title=(EditText)findViewById(R.id.titleEDTX);
         content=(EditText)findViewById(R.id.contEDTX);

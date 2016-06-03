@@ -56,6 +56,7 @@ public class hod_notice_upl extends AppCompatActivity {
                 not.saveAsync(new AsyncCallback<Notice>() {
                  @Override
                  public void handleResponse(Notice notice) {
+
                      Toast.makeText(hod_notice_upl.this, "Notice Uploaded", Toast.LENGTH_SHORT).show();
 
                  }

@@ -1,6 +1,5 @@
 package com.example.smart_campus.smartcampus.faculty;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -47,7 +46,7 @@ public class faculty_schedule extends AppCompatActivity implements AdapterView.O
 
         pwd=(ProgressWheel)findViewById(R.id.progress_wheel);
         edp=(TextView)findViewById(R.id.rowItem);
-        daysls=(Spinner)findViewById(R.id.dayspinid);
+        daysls=(Spinner)findViewById(R.id.lecture_spinner);
         daylsarry.add("Monday");
         daylsarry.add("Tuesday");
         daylsarry.add("Wednesday");

@@ -1,6 +1,5 @@
 package com.example.smart_campus.smartcampus.hod;
 
-import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -47,7 +46,7 @@ public class hod_schedule extends AppCompatActivity implements AdapterView.OnIte
 
         pwd=(ProgressWheel)findViewById(R.id.progress_wheel);
         edp=(TextView)findViewById(R.id.rowItem);
-        daysls=(Spinner)findViewById(R.id.dayspinid);
+        daysls=(Spinner)findViewById(R.id.lecture_spinner);
         daylsarry.add("Monday");
         daylsarry.add("Tuesday");
         daylsarry.add("Wednesday");
@@ -101,6 +100,7 @@ public class hod_schedule extends AppCompatActivity implements AdapterView.OnIte
                                         String tp = a.get(i).getThursday();
                                         lectureadap.add(tp);
                                         lectureadap.notifyDataSetChanged();
+                                        pwd.stopSpinning();
                                         break;
                                     }
                                     case "Friday": {

@@ -12,4 +12,11 @@
     <string name="title_feature4">NOTICE</string>
     <string name="title_feature5">TEACHER</string>
     <string name="title_feature6">H.O.D</string>
+
+    <array name="lectures">
+        <item>Java</item>
+        <item>Management</item>
+        <item>Embedded</item>
+        <item>Dbms</item>
+    </array>
 </resources>

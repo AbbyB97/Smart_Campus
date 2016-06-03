@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -49,7 +48,7 @@ public class student_schedule extends AppCompatActivity implements AdapterView.O
 
         pwd=(ProgressWheel)findViewById(R.id.progress_wheel);
         edp=(TextView)findViewById(R.id.rowItem);
-        daysls=(Spinner)findViewById(R.id.dayspinid);
+        daysls=(Spinner)findViewById(R.id.lecture_spinner);
         daylsarry.add("Monday");
         daylsarry.add("Tuesday");
         daylsarry.add("Wednesday");

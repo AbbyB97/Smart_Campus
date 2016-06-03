@@ -55,7 +55,8 @@
         <activity android:name=".faculty.faculty_notice_list" />
         <activity android:name=".faculty.faculty_notice_dash" />
         <activity android:name=".student.student_notice_list" />
-        <activity android:name=".student.student_notice_dash"></activity>
+        <activity android:name=".student.student_notice_dash" />
+        <activity android:name=".student.student_attendance"></activity>
     </application>
 
 </manifest>

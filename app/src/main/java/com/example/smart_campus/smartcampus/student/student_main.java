@@ -27,6 +27,9 @@ public class student_main extends AppCompatActivity {
 
     public void Attendance(View v){
         Log.i("", "Attendance: ");
+        Intent i=new Intent(this,student_attendance.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.right_left, R.anim.left_right);
         Toast.makeText(this, "Attendance is clicked", Toast.LENGTH_SHORT).show();}
 
     public void Manual(View v){Toast.makeText(this, "Manual is clicked", Toast.LENGTH_SHORT).show();}

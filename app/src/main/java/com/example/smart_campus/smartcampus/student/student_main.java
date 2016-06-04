@@ -63,9 +63,8 @@ public class student_main extends AppCompatActivity {
                         shared_editor.putBoolean("firstlogin",true);
                         shared_editor.apply();
 
-                       /* Intent nextact = new Intent(getApplicationContext(), login.class);
+                        Intent nextact = new Intent(getApplicationContext(), login.class);
                         startActivity(nextact);
-                        */
                         student_main.this.finish();
                         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
                     }
@@ -73,7 +72,7 @@ public class student_main extends AppCompatActivity {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
-
+                        student_main.this.finish();
                     }
                 });
         android.app.AlertDialog alert = builder.create();

@@ -4,13 +4,8 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Large Text"
         android:id="@+id/rowItem"
-        android:textStyle="bold"
-        android:textSize="30dp"
         android:textAlignment="center"
-        android:textColor="#4052b5" />
+        style="@style/sc_list_item_row" />
 </LinearLayout>

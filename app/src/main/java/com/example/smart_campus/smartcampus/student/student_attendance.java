@@ -45,7 +45,7 @@ public class student_attendance extends AppCompatActivity {
         attedncadapt=new ArrayAdapter<String>(this, R.layout.lecture_list_item, R.id.rowItem,attednc_dtlary);
         attednc_dtl.setAdapter(attedncadapt);
 
-        lectspin=(Spinner)findViewById(R.id.lecture_spinner);
+        lectspin=(Spinner)findViewById(R.id.subject_Spinner);
         lecadapt=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,lect_ary);
         lecadapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         lectspin.setAdapter(lecadapt);
@@ -124,9 +124,6 @@ public class student_attendance extends AppCompatActivity {
                 // an error has occurred, the error code can be retrieved with fault.getCode()
             }
         } );*/
-
-
-
     }
     public void processAttendance(String data){
         for (String a:data.split("_",Integer.MAX_VALUE)){

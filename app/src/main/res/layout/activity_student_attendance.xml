@@ -20,7 +20,7 @@
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:id="@+id/lecture_spinner"
+            android:id="@+id/subject_Spinner"
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:gravity="center"
@@ -37,11 +37,11 @@
             android:layout_gravity="center"
             android:src="@drawable/spinner_converted_one"
             android:adjustViewBounds="true"
-            android:layout_alignTop="@+id/lecture_spinner"
-            android:layout_alignBottom="@+id/lecture_spinner"
+            android:layout_alignTop="@+id/subject_Spinner"
+            android:layout_alignBottom="@+id/subject_Spinner"
             android:layout_centerVertical="true"
-            android:layout_alignRight="@+id/lecture_spinner"
-            android:layout_alignEnd="@+id/lecture_spinner"
+            android:layout_alignRight="@+id/subject_Spinner"
+            android:layout_alignEnd="@+id/subject_Spinner"
             android:layout_marginRight="10dp" />
 
         <TextView

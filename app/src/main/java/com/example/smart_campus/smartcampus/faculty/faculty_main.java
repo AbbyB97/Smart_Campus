@@ -30,6 +30,9 @@ public class faculty_main extends AppCompatActivity {
     }
 
     public void Attendance(View v){
+        Intent i=new Intent(this,faculty_attendance.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.right_left, R.anim.left_right);
         Toast.makeText(this, "Attendance is clicked", Toast.LENGTH_SHORT).show();}
     public void Manual(View v){Toast.makeText(this, "Manual is clicked", Toast.LENGTH_SHORT).show();}
     public void Schedule(View v){
@@ -43,7 +46,7 @@ public class faculty_main extends AppCompatActivity {
         startActivity(i);
         overridePendingTransition(R.anim.right_left, R.anim.left_right);
         Toast.makeText(this, "Notice is clicked", Toast.LENGTH_SHORT).show();}
-    public void Teacher(View v){Toast.makeText(this, "Teacher is clicked", Toast.LENGTH_SHORT).show();}
+    public void Teacher(View v){Toast.makeText(this, "Student is clicked", Toast.LENGTH_SHORT).show();}
     public void H_O_D(View v){Toast.makeText(this, "H.O.D is clicked", Toast.LENGTH_SHORT).show();}
     @Override
     public void onBackPressed() {
@@ -60,8 +63,8 @@ public class faculty_main extends AppCompatActivity {
                         shared_editor.putString("account_type",null);
                         shared_editor.putBoolean("firstlogin",true);
                         shared_editor.apply();
-                        /*Intent nextact = new Intent(getApplicationContext(), login.class);
-                        startActivity(nextact);*/
+                        Intent nextact = new Intent(getApplicationContext(), login.class);
+                        startActivity(nextact);
                         faculty_main.this.finish();
                         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
                     }
@@ -69,6 +72,7 @@ public class faculty_main extends AppCompatActivity {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
+                        faculty_main.this.finish();
                     }
                 });
         AlertDialog alert = builder.create();

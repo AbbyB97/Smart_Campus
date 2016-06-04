@@ -65,13 +65,13 @@
                     style="@style/HomeButton"
                     android:onClick="Teacher"
                     android:text="@string/title_feature5"
-                    android:drawableTop="@drawable/staff"
+                    android:drawableTop="@drawable/teacher"
                     android:layout_height="wrap_content" />
                 <TextView android:id="@+id/home_btn_feature6"
                     style="@style/HomeButton"
                     android:onClick="H_O_D"
-                    android:text="@string/title_feature6"
-                    android:drawableTop="@drawable/teacher"
+                    android:text="@string/title_activity_student_main"
+                    android:drawableTop="@drawable/staff"
                     android:layout_height="wrap_content" />
             </LinearLayout>
         </LinearLayout>

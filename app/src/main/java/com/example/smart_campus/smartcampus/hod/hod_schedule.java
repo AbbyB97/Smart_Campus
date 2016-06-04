@@ -46,7 +46,7 @@ public class hod_schedule extends AppCompatActivity implements AdapterView.OnIte
 
         pwd=(ProgressWheel)findViewById(R.id.progress_wheel);
         edp=(TextView)findViewById(R.id.rowItem);
-        daysls=(Spinner)findViewById(R.id.lecture_spinner);
+        daysls=(Spinner)findViewById(R.id.subject_Spinner);
         daylsarry.add("Monday");
         daylsarry.add("Tuesday");
         daylsarry.add("Wednesday");

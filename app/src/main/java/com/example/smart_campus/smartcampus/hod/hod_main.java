@@ -23,8 +23,6 @@ public class hod_main extends AppCompatActivity {
         setContentView(R.layout.activity_hod_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
     }
     public void Attendance(View v){
         Toast.makeText(this, "Attendance is clicked", Toast.LENGTH_SHORT).show();}
@@ -41,7 +39,7 @@ public class hod_main extends AppCompatActivity {
         overridePendingTransition(R.anim.right_left, R.anim.left_right);
         Toast.makeText(this, "Notice is clicked", Toast.LENGTH_SHORT).show();}
     public void Teacher(View v){Toast.makeText(this, "Teacher is clicked", Toast.LENGTH_SHORT).show();}
-    public void H_O_D(View v){Toast.makeText(this, "H.O.D is clicked", Toast.LENGTH_SHORT).show();}
+    public void H_O_D(View v){Toast.makeText(this, "Student is clicked", Toast.LENGTH_SHORT).show();}
     @Override
     public void onBackPressed() {
 
@@ -57,8 +55,8 @@ public class hod_main extends AppCompatActivity {
                         shared_editor.putString("account_type",null);
                         shared_editor.putBoolean("firstlogin",true);
                         shared_editor.apply();
-                        /*Intent nextact = new Intent(getApplicationContext(), login.class);
-                        startActivity(nextact);*/
+                        Intent nextact = new Intent(getApplicationContext(), login.class);
+                        startActivity(nextact);
                         hod_main.this.finish();
                         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
                     }
@@ -66,6 +64,7 @@ public class hod_main extends AppCompatActivity {
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
+                        hod_main.this.finish();
                     }
                 });
         android.app.AlertDialog alert = builder.create();

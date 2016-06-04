@@ -28,7 +28,7 @@ public class login extends AppCompatActivity {
     Button loginBobj;
     TextView forgot_PW_Tobj;
     EditText username_ETobj, password_ETobj;
-    static String username_stV, password_stV;
+    public static String username_stV, password_stV;
     public android.app.AlertDialog.Builder ex;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,7 +111,7 @@ public class login extends AppCompatActivity {
                                 overridePendingTransition(R.anim.fadin, R.anim.fadout);
 
                             }
-                            Toast.makeText(login.this, "Logged in as " + user.getProperty("name")+" with Account Type:"+registration.account_categoryV, Toast.LENGTH_LONG).show();
+                            Toast.makeText(login.this,""+registration.account_categoryV+" Login Successful", Toast.LENGTH_LONG).show();
                             Log.i("log in successful", "" + user.getProperty("name"));
                             // user has been logged in
                         }

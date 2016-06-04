@@ -16,6 +16,7 @@ import com.backendless.exceptions.BackendlessFault;
 import com.example.smart_campus.smartcampus.API.Notice;
 import com.example.smart_campus.smartcampus.R;
 import com.example.smart_campus.smartcampus.hod.hod_notice_list;
+import com.example.smart_campus.smartcampus.login;
 
 public class faculty_notice_upl extends AppCompatActivity {
 
@@ -50,13 +51,14 @@ public class faculty_notice_upl extends AppCompatActivity {
                 Notice not=new Notice();
                 not.setTitle(titileV);
                 not.setContent(contentV);
-                String nm="Ankit";
+                String nm= login.username_stV;
                 not.setFrom(nm);
                 not.saveAsync(new AsyncCallback<Notice>() {
                                   @Override
                                   public void handleResponse(Notice notice) {
+                                      title.setText("");
+                                      content.setText("");
                                       Toast.makeText(faculty_notice_upl.this, "Notice Uploaded", Toast.LENGTH_SHORT).show();
-
                                   }
                                   @Override public void handleFault(BackendlessFault backendlessFault) {
 

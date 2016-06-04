@@ -70,20 +70,15 @@
         android:paddingTop="5dp" />
 
     <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:text="Upload"
         android:id="@+id/hodnotice_uplBTN"
         android:layout_marginTop="36dp"
-        android:background="@drawable/x_custom_button"
-        android:textColor="@color/colorPrimary"
-        android:textStyle="bold"
         android:layout_below="@+id/contEDTX"
-        android:textSize="30dp"
         android:layout_alignRight="@+id/contEDTX"
         android:layout_alignEnd="@+id/contEDTX"
         android:layout_alignLeft="@+id/contEDTX"
-        android:layout_alignStart="@+id/contEDTX" />
+        android:layout_alignStart="@+id/contEDTX"
+        style="@style/sc_button" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -110,7 +105,8 @@
         android:layout_alignRight="@+id/hodnotice_uplBTN"
         android:layout_alignEnd="@+id/hodnotice_uplBTN"
         android:layout_alignLeft="@+id/hodnotice_uplBTN"
-        android:layout_alignStart="@+id/hodnotice_uplBTN" />
+        android:layout_alignStart="@+id/hodnotice_uplBTN"
+        android:layout_marginBottom="10dp" />
     </RelativeLayout>
     </ScrollView>
 </RelativeLayout>

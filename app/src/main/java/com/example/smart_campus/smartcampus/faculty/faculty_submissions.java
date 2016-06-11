@@ -20,6 +20,8 @@ import com.backendless.Backendless;
 import com.backendless.BackendlessCollection;
 import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
+import com.backendless.persistence.BackendlessDataQuery;
+import com.backendless.persistence.QueryOptions;
 import com.example.smart_campus.smartcampus.API.ProgressWheel;
 import com.example.smart_campus.smartcampus.API.Submissions;
 import com.example.smart_campus.smartcampus.R;
@@ -38,6 +40,9 @@ public class faculty_submissions extends AppCompatActivity implements AdapterVie
     ArrayList<String> obid = new ArrayList<String>();
     ArrayList<String> sub_ary = new ArrayList<String>();
     ArrayAdapter<String> subexpary,sub_adpt;
+    QueryOptions qry;
+    BackendlessDataQuery bqry;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +61,7 @@ public class faculty_submissions extends AppCompatActivity implements AdapterVie
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selected_sub=parent.getSelectedItem().toString();
+                sub_spinner.setEnabled(false);
                 pdw.spin();
                 updatelist();
             }
@@ -274,7 +280,10 @@ public class faculty_submissions extends AppCompatActivity implements AdapterVie
     public void updatelist() {
         subexpary.clear();
         if (subexpary.isEmpty()) {
-            Backendless.Persistence.of( Submissions.class).find(new AsyncCallback<BackendlessCollection<Submissions>>(){
+            qry=new QueryOptions();
+            qry.addSortByOption("sortit");
+            bqry=new BackendlessDataQuery(qry);
+            Backendless.Persistence.of( Submissions.class).find(bqry,new AsyncCallback<BackendlessCollection<Submissions>>(){
                 @Override
                 public void handleResponse( BackendlessCollection<Submissions> foundContacts )
                 {
@@ -301,6 +310,7 @@ public class faculty_submissions extends AppCompatActivity implements AdapterVie
                         pdw.stopSpinning();
                         obid.add(n.getObjectId());
                     }
+                    sub_spinner.setEnabled(true);
                     // all Contact instances have been found
                 }
                 @Override

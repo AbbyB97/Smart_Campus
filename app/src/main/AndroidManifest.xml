@@ -60,7 +60,8 @@
         <activity android:name=".student.student_notice_list" />
         <activity android:name=".student.student_notice_dash" />
         <activity android:name=".student.student_attendance" />
-        <activity android:name=".faculty.faculty_attendance"></activity>
+        <activity android:name=".faculty.faculty_attendance" />
+        <activity android:name=".faculty.faculty_submissions"></activity>
     </application>
 
 </manifest>

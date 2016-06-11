@@ -21,6 +21,6 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/faculty_main" />
+    <include layout="@layout/con_faculty_main" />
 
 </android.support.design.widget.CoordinatorLayout>

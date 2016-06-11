@@ -34,7 +34,11 @@ public class faculty_main extends AppCompatActivity {
         startActivity(i);
         overridePendingTransition(R.anim.right_left, R.anim.left_right);
         Toast.makeText(this, "Attendance is clicked", Toast.LENGTH_SHORT).show();}
-    public void Manual(View v){Toast.makeText(this, "Manual is clicked", Toast.LENGTH_SHORT).show();}
+    public void Manual(View v){
+        Intent i=new Intent(this,faculty_submissions.class);
+        startActivity(i);
+        overridePendingTransition(R.anim.right_left, R.anim.left_right);
+        Toast.makeText(this, "Manual is clicked", Toast.LENGTH_SHORT).show();}
     public void Schedule(View v){
         Intent i=new Intent(this,faculty_schedule.class);
         startActivity(i);

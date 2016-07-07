@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.smart_campus.smartcampus.student.student_submission">
+    <com.example.smart_campus.smartcampus.API.ProgressWheel
+        xmlns:wheel="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/progress_wheel"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        wheel:matProg_barColor="#5588FF"
+        wheel:matProg_progressIndeterminate="true" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/relativeLayout" >
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/spinner_converted_one"
+            android:adjustViewBounds="true"
+            android:layout_alignTop="@+id/sub_spiner"
+            android:layout_alignBottom="@+id/sub_spiner"
+            android:layout_centerVertical="true"
+            android:layout_alignRight="@+id/sub_spiner"
+            android:layout_alignEnd="@+id/sub_spiner"
+            android:layout_marginRight="10dp" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:id="@+id/sub_spiner"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:background="@drawable/background_spinner"
+            android:gravity="center"
+            android:spinnerMode="dropdown"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:popupBackground="@drawable/background_spinner_popup"
+            android:layout_below="@+id/textView6" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Select Subject :"
+            android:id="@+id/textView6"
+            android:textColor="@color/colorPrimary"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="250dp"
+        android:id="@+id/dls"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:choiceMode="singleChoice"
+        tools:listitem="@layout/lecture_list_item"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@+id/relativeLayout"
+        android:background="@drawable/background_spinner"
+        android:divider="@color/colorPrimaryDark"
+        android:dividerHeight="3dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp" />
+
+</RelativeLayout>

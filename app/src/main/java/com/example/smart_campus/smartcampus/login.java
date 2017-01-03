@@ -38,8 +38,8 @@ public class login extends AppCompatActivity {
         setSupportActionBar(toolbar);
         Log.i("Acitivty ", "is created");
         loginBobj = (Button) findViewById(R.id.login_Button);
-        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
-        loginBobj.setTypeface(type);
+//        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
+//        loginBobj.setTypeface(type);
 
         username_ETobj = (EditText) findViewById(R.id.login_username_ET);
         password_ETobj = (EditText) findViewById(R.id.login_passwordET);

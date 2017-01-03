@@ -23,7 +23,7 @@ public class splash extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
         tv=(TextView)findViewById(R.id.splashtxt);
-        tv.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/prototype.ttf"));
+//        tv.setTypeface(Typeface.createFromAsset(getAssets(),"fonts/prototype.ttf"));
         final SharedPreferences shared_editor = this.getSharedPreferences("Login_status", MODE_PRIVATE);
 
         //creating thread for splash screen

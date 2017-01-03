@@ -52,9 +52,8 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         account_type.add("Faculty");
 
         registerB = (Button) findViewById(R.id.register_button);
-        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
-        registerB.setTypeface(type);
-
+//        Typeface type = Typeface.createFromAsset(getAssets(), "fonts/prototype.ttf");
+//        registerB.setTypeface(type);
         dropdown = (Spinner) findViewById(R.id.spinner1);
         dropdown.setOnItemSelectedListener(this);
 

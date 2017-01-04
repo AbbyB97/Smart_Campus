@@ -1,6 +1,7 @@
 package com.example.smart_campus.smartcampus;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -22,6 +23,8 @@ import com.backendless.exceptions.BackendlessFault;
 import com.example.smart_campus.smartcampus.faculty.faculty_main;
 import com.example.smart_campus.smartcampus.hod.hod_main;
 import com.example.smart_campus.smartcampus.student.student_main;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class login extends AppCompatActivity {
     ProgressDialog loading_dialog;
@@ -159,5 +162,9 @@ public class login extends AppCompatActivity {
     public void onBackPressed() {
         ex.show();
 //        finish();
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }

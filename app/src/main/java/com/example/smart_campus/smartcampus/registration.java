@@ -1,6 +1,7 @@
 package com.example.smart_campus.smartcampus;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -22,6 +23,8 @@ import com.backendless.async.callback.AsyncCallback;
 import com.backendless.exceptions.BackendlessFault;
 
 import java.util.ArrayList;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 
 public class registration extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
@@ -156,6 +159,10 @@ public class registration extends AppCompatActivity implements AdapterView.OnIte
         super.onBackPressed();
         finish();
         overridePendingTransition(R.anim.anim_in, R.anim.anim_out);
+    }
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 }
 

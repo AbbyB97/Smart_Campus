@@ -6,6 +6,7 @@
     tools:context=".splash">
 
     <TextView
+        tools:ignore="MissingPrefix"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SMART \nCAMPUS"
@@ -15,5 +16,6 @@
         android:textSize="60dp"
         android:gravity="center"
         android:textColor="@color/abc_primary_text_material_light"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        fontPath="fonts/Prototype.ttf"/>
 </RelativeLayout>
